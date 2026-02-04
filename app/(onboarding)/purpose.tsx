@@ -11,6 +11,7 @@ import {
   Text,
   View,
 } from "react-native";
+import Animated, { FadeInDown } from "react-native-reanimated";
 
 const { width } = Dimensions.get("window");
 
@@ -68,14 +69,16 @@ export default function PurposeSelectionScreen() {
         </View>
       </ScrollView>
 
-      <Link href="/(onboarding)/topics" asChild>
-        <PulsateButton
-          style={styles.continueButton}
-          disabled={!selectedPurpose}
-        >
-          <Text style={styles.buttonText}>Continue</Text>
-        </PulsateButton>
-      </Link>
+      <Animated.View entering={FadeInDown.duration(800).delay(200)}>
+        <Link href="/(onboarding)/topics" asChild>
+          <PulsateButton
+            style={styles.continueButton}
+            disabled={!selectedPurpose}
+          >
+            <Text style={styles.buttonText}>Continue</Text>
+          </PulsateButton>
+        </Link>
+      </Animated.View>
     </View>
   );
 }
@@ -92,9 +95,9 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   mascotSmall: {
-    width: width * 0.55,
-    height: width * 0.55,
-
+    width: width * 0.5,
+    height: width * 0.5,
+    marginTop: 15,
     transform: [{ rotate: "5deg" }],
   },
   title: {

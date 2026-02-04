@@ -1,0 +1,619 @@
+[
+  {
+    "id": "b3c1e8b4-4b6e-4f9b-8c5a-0f9e9a6c1a01",
+    "title": "Bananas Are Radioactive",
+    "content": "Bananas emit radiation due to natural potassium-40. It’s harmless, but detectable with a Geiger counter.",
+    "categories": ["Science", "Food", "Random"]
+  },
+  {
+    "id": "7d4a2c9e-1f3b-4a6c-9b2e-8f1a2d9b0a02",
+    "title": "Octopus Arms Think",
+    "content": "An octopus has more neurons in its arms than in its brain, letting each arm make decisions on its own.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "e1a9c3b2-6f4d-4c8a-9b1e-7a0d2c3e4b03",
+    "title": "Cleopatra Wasn’t Egyptian",
+    "content": "Cleopatra VII was of Macedonian Greek origin, not Egyptian, though she ruled Egypt.",
+    "categories": ["History", "Culture"]
+  },
+  {
+    "id": "4f8a1d2c-9e6b-4a3f-8c0e-1b2a9d7c5a04",
+    "title": "Trees Can Communicate",
+    "content": "Trees share nutrients and warnings through underground fungal networks called the “wood wide web.”",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "9a0e7c6b-3d1f-4a2b-8c9e-5b4d1f2a6e05",
+    "title": "Your Body Glows",
+    "content": "The human body emits a faint visible light caused by biochemical reactions, but it’s invisible to our eyes.",
+    "categories": ["Human Body", "Science"]
+  },
+  {
+    "id": "c2b9e7a1-5d8f-4b0e-9a6c-3f1d2e8a4b06",
+    "title": "Honey Never Spoils",
+    "content": "Edible honey has been found in ancient tombs because its low moisture and acidity prevent bacteria growth.",
+    "categories": ["Science", "History", "Lifestyle"]
+  },
+  {
+    "id": "5a6e4b7c-2d8f-4c9a-8e1b-0f3a1d2c9b07",
+    "title": "Saturn Could Float",
+    "content": "If you had a big enough ocean, Saturn would float because it’s mostly made of low-density gases.",
+    "categories": ["Science", "Space"]
+  },
+  {
+    "id": "0d9c1a4b-6e2f-4b7a-8c5d-1e3a9f2b4c08",
+    "title": "Ancient Olympic Cheaters",
+    "content": "In ancient Greece, cheaters paid fines to build statues reminding athletes to compete honestly.",
+    "categories": ["History", "Sports"]
+  },
+  {
+    "id": "8e4b2a9c-7d1f-4c3a-9b6e-5f0d1a2c7b09",
+    "title": "Sharks Are Older Than Trees",
+    "content": "Sharks existed over 400 million years ago—before trees appeared on Earth.",
+    "categories": ["Nature", "History"]
+  },
+  {
+    "id": "1c9e5b0a-6d4f-4a8c-9b7e-2f3d1a6b8c10",
+    "title": "Wi-Fi Name Origin",
+    "content": "Wi-Fi doesn’t stand for anything; it was a brand name chosen because it sounded catchy.",
+    "categories": ["Technology", "Culture"]
+  },
+
+  {
+    "id": "2f3b1a8c-9e6d-4b5a-8c7e-0d1a4f9b6a11",
+    "title": "Butterflies Remember",
+    "content": "Butterflies can remember being caterpillars, retaining learned behaviors after metamorphosis.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "6b2d8c9a-5e1f-4a3b-8c7d-0f4a9e1b2c12",
+    "title": "Moon Smells",
+    "content": "Astronauts reported moon dust smells like burnt gunpowder after returning to their spacecraft.",
+    "categories": ["Science", "Space"]
+  },
+  {
+    "id": "4a9b8e2f-0d3c-4b6a-9c1e-7f5d1a2b8c13",
+    "title": "Scotland Has 421 Words",
+    "content": "The Scots language has over 400 words just to describe snow.",
+    "categories": ["Culture", "Geography"]
+  },
+  {
+    "id": "9c7d2e1a-5f8b-4a6c-8e3d-0b4a9f1c2a14",
+    "title": "You Share DNA With Bananas",
+    "content": "Humans share about 60% of their DNA with bananas at a basic cellular level.",
+    "categories": ["Science", "Human Body"]
+  },
+  {
+    "id": "1f4c2d9a-8e7b-4a0c-9b6d-3a5f1e2c8b15",
+    "title": "Hot Water Freezes Faster",
+    "content": "Known as the Mpemba effect, hot water can freeze faster than cold under certain conditions.",
+    "categories": ["Science", "Random"]
+  },
+  {
+    "id": "a3c2e9b7-5f8d-4a1b-9c6e-0d4f1a2b8c16",
+    "title": "Rome’s Concrete Secret",
+    "content": "Ancient Roman concrete could self-heal cracks using seawater and volcanic ash.",
+    "categories": ["History", "Technology"]
+  },
+  {
+    "id": "b9c7d8a2-4e1f-4a6b-9c3d-0f5a1e2c8a17",
+    "title": "Birds Don’t Urinate",
+    "content": "Most birds don’t pee; they excrete waste as uric acid in solid form.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "2a9c5d8e-7f4b-4a1c-9e6d-0f3b1a2c8a18",
+    "title": "Time Moves Slower Up There",
+    "content": "Time passes slightly faster at sea level than on mountains due to gravity.",
+    "categories": ["Science"]
+  },
+  {
+    "id": "8c9e2a4d-1b5f-4a7c-9e6d-0f3a1b2c8a19",
+    "title": "The Eiffel Tower Grows",
+    "content": "The Eiffel Tower grows about 15 cm taller in summer due to metal expansion.",
+    "categories": ["Science", "Geography"]
+  },
+  {
+    "id": "c1a9d8b4-7e2f-4a5c-9b6e-0f3a1d2c8a20",
+    "title": "Laughing Rats",
+    "content": "Rats laugh when tickled, emitting ultrasonic chirps linked to joy.",
+    "categories": ["Science", "Nature"]
+  },
+
+  {
+    "id": "5a2c9b8e-4d7f-4a1c-9e6d-0f3a1b2c8a21",
+    "title": "Wombat Cubes",
+    "content": "Wombats produce cube-shaped poop, preventing it from rolling away.",
+    "categories": ["Nature", "Random"]
+  },
+  {
+    "id": "9b8a2d4c-1e7f-4a5c-9b6e-0f3a1d2c8a22",
+    "title": "Oxford Beats Aztecs",
+    "content": "Oxford University existed before the Aztec Empire.",
+    "categories": ["History"]
+  },
+  {
+    "id": "c9a4d8b2-7e1f-4a5c-9b6e-0f3a1d2c8a23",
+    "title": "Smell Shapes Taste",
+    "content": "Up to 80% of what you taste actually comes from your sense of smell.",
+    "categories": ["Human Body", "Science"]
+  },
+  {
+    "id": "2d8a9c4b-1e7f-4a5c-9b6e-0f3a1d2c8a24",
+    "title": "Venus Flytrap Counts",
+    "content": "Venus flytraps count trigger hair touches to decide when to snap shut.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "4c8d9a2b-1e7f-4a5c-9b6e-0f3a1d2c8a25",
+    "title": "The Brain Eats Power",
+    "content": "Your brain uses about 20% of your body’s energy despite being only 2% of your weight.",
+    "categories": ["Human Body", "Science"]
+  },
+
+  {
+    "id": "a9c8d4b2-7e1f-4a5c-9b6e-0f3a1d2c8a26",
+    "title": "Jellyfish Immortality",
+    "content": "One jellyfish species can revert to its juvenile form, potentially living forever.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "b8c9a4d2-7e1f-4a5c-9b6e-0f3a1d2c8a27",
+    "title": "Earth Has a Pulse",
+    "content": "Every 26 seconds, Earth experiences a tiny seismic pulse of unknown origin.",
+    "categories": ["Science", "Geography"]
+  },
+  {
+    "id": "c8b9a4d2-7e1f-4a5c-9b6e-0f3a1d2c8a28",
+    "title": "Clouds Are Heavy",
+    "content": "A single cumulus cloud can weigh over a million tons due to water droplets.",
+    "categories": ["Science", "Nature"]
+  },
+  {
+    "id": "d9c8a4b2-7e1f-4a5c-9b6e-0f3a1d2c8a29",
+    "title": "Speed of Smell",
+    "content": "Smells travel slower in cold air, which is why winter scents feel muted.",
+    "categories": ["Science"]
+  },
+  {
+    "id": "e9c8a4b2-7e1f-4a5c-9b6e-0f3a1d2c8a30",
+    "title": "Mars Has Blue Sunsets",
+    "content": "Due to its thin atmosphere, sunsets on Mars appear blue instead of red.",
+    "categories": ["Science", "Space"]
+  },
+
+  {
+    "id": "f1c8a4b2-7e1f-4a5c-9b6e-0f3a1d2c8a31",
+    "title": "Tardigrade Survivors",
+    "content": "Tardigrades can survive radiation, freezing, boiling, and even the vacuum of space.",
+    "categories": ["Science", "Nature"]
+  },
+  {
+    "id": "a1b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a32",
+    "title": "Paper Beats Rock",
+    "content": "Paper cuts hurt so much because paper triggers more pain receptors than clean cuts.",
+    "categories": ["Human Body", "Science"]
+  },
+  {
+    "id": "b1b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a33",
+    "title": "Neutrinos Pass You",
+    "content": "Billions of neutrinos pass through your body every second without you noticing.",
+    "categories": ["Science"]
+  },
+  {
+    "id": "c1b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a34",
+    "title": "Ancient Toothpaste",
+    "content": "Ancient Egyptians used crushed eggshells and ash as toothpaste.",
+    "categories": ["History", "Lifestyle"]
+  },
+  {
+    "id": "d1b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a35",
+    "title": "Your Bones Renew",
+    "content": "Your skeleton fully replaces itself roughly every 10 years.",
+    "categories": ["Human Body", "Science"]
+  },
+
+  {
+    "id": "e1b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a36",
+    "title": "Penguins Propose",
+    "content": "Male penguins propose by offering a pebble to a potential mate.",
+    "categories": ["Nature", "Culture"]
+  },
+  {
+    "id": "f1b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a37",
+    "title": "Blue Whale Heart",
+    "content": "A blue whale’s heart is so large a human could crawl through its arteries.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "a2b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a38",
+    "title": "The First Alarm Clock",
+    "content": "The first alarm clock could only ring at one fixed time.",
+    "categories": ["History", "Technology"]
+  },
+  {
+    "id": "b2b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a39",
+    "title": "Plants Can Hear",
+    "content": "Some plants grow toward the sound of running water.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "c2b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a40",
+    "title": "Dream Paralysis",
+    "content": "Your body paralyzes itself during dreams to stop you from acting them out.",
+    "categories": ["Human Body", "Science"]
+  },
+
+  {
+    "id": "d2b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a41",
+    "title": "Spiders Don’t Stick",
+    "content": "Spiders’ legs have oil-like coatings that prevent them from sticking to webs.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "e2b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a42",
+    "title": "Vikings Used Cats",
+    "content": "Vikings valued cats so much they brought them on ships for luck and pest control.",
+    "categories": ["History", "Culture"]
+  },
+  {
+    "id": "f2b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a43",
+    "title": "Water Isn’t Blue",
+    "content": "Water looks blue because it absorbs red light more than blue.",
+    "categories": ["Science", "Nature"]
+  },
+  {
+    "id": "a3b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a44",
+    "title": "You’re Taller at Night",
+    "content": "You’re slightly taller in the morning because gravity compresses your spine during the day.",
+    "categories": ["Human Body", "Science"]
+  },
+  {
+    "id": "b3b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a45",
+    "title": "Ancient Lipstick",
+    "content": "The first lipstick was made from crushed gems and insects.",
+    "categories": ["History", "Culture"]
+  },
+
+  {
+    "id": "c3b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a46",
+    "title": "Mosquito Preference",
+    "content": "Mosquitoes prefer people with type O blood.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "d3b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a47",
+    "title": "Earth Isn’t Round",
+    "content": "Earth is an oblate spheroid, bulging slightly at the equator.",
+    "categories": ["Science", "Geography"]
+  },
+  {
+    "id": "e3b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a48",
+    "title": "Cheese Is Alive",
+    "content": "Many cheeses contain live bacteria that shape their flavor over time.",
+    "categories": ["Science", "Lifestyle"]
+  },
+  {
+    "id": "f3b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a49",
+    "title": "Ant Superhighways",
+    "content": "Ants create traffic lanes to avoid jams, just like humans.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "a4b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a50",
+    "title": "Your Eyes Trick You",
+    "content": "Your brain fills in blind spots in your vision, so you never notice them.",
+    "categories": ["Human Body", "Science"]
+  },
+
+  {
+    "id": "b4b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a51",
+    "title": "Ancient Board Games",
+    "content": "The world’s oldest board game is over 5,000 years old.",
+    "categories": ["History", "Culture"]
+  },
+  {
+    "id": "c4b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a52",
+    "title": "Sound Shapes Flames",
+    "content": "Sound waves can visibly shape flames by altering air pressure.",
+    "categories": ["Science"]
+  },
+  {
+    "id": "d4b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a53",
+    "title": "Koalas Have Fingerprints",
+    "content": "Koala fingerprints are nearly identical to human ones.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "e4b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a54",
+    "title": "Ancient Glass",
+    "content": "Some Roman glass still hasn’t chemically degraded after 2,000 years.",
+    "categories": ["History", "Science"]
+  },
+  {
+    "id": "f4b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a55",
+    "title": "Your Heart Syncs",
+    "content": "People’s heart rates can synchronize when they spend time together.",
+    "categories": ["Human Body", "Science"]
+  },
+
+  {
+    "id": "a5b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a56",
+    "title": "Plants Glow Under UV",
+    "content": "Some plants naturally glow under ultraviolet light.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "b5b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a57",
+    "title": "Ancient Maps Knew Ice",
+    "content": "Some ancient maps accurately show Antarctica without ice.",
+    "categories": ["History", "Geography"]
+  },
+  {
+    "id": "c5b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a58",
+    "title": "You Share a Birthday",
+    "content": "At a party of 23 people, there’s a 50% chance two share a birthday.",
+    "categories": ["Science", "Random"]
+  },
+  {
+    "id": "d5b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a59",
+    "title": "Dolphins Have Names",
+    "content": "Dolphins use unique whistles to identify each other, like names.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "e5b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a60",
+    "title": "Your Stomach Acid",
+    "content": "Stomach acid is strong enough to dissolve metal, but your lining protects you.",
+    "categories": ["Human Body", "Science"]
+  },
+
+  {
+    "id": "f5b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a61",
+    "title": "Ancient Elevators",
+    "content": "Ancient Romans used elevators powered by humans or animals.",
+    "categories": ["History", "Technology"]
+  },
+  {
+    "id": "a6b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a62",
+    "title": "You’re Mostly Empty",
+    "content": "Atoms in your body are mostly empty space.",
+    "categories": ["Science", "Human Body"]
+  },
+  {
+    "id": "b6b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a63",
+    "title": "Plants Can Count",
+    "content": "Some plants adjust growth based on how many times they’re touched.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "c6b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a64",
+    "title": "Ancient Ice Cream",
+    "content": "Ancient Persians made ice cream using snow and grape juice.",
+    "categories": ["History", "Culture"]
+  },
+  {
+    "id": "d6b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a65",
+    "title": "You Blink Less",
+    "content": "People blink less than half as often when using screens.",
+    "categories": ["Human Body", "Lifestyle"]
+  },
+
+  {
+    "id": "e6b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a66",
+    "title": "Stars Are Noisy",
+    "content": "Stars produce sound waves, but at frequencies too low for humans to hear.",
+    "categories": ["Science", "Space"]
+  },
+  {
+    "id": "f6b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a67",
+    "title": "Cats Walk Like Camels",
+    "content": "Cats walk by moving both legs on one side, just like camels and giraffes.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "a7b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a68",
+    "title": "Ancient Contact Lenses",
+    "content": "The earliest contact lenses were made of glass.",
+    "categories": ["History", "Technology"]
+  },
+  {
+    "id": "b7b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a69",
+    "title": "Your Brain Predicts",
+    "content": "Your brain constantly predicts the future to process reality faster.",
+    "categories": ["Human Body", "Science"]
+  },
+  {
+    "id": "c7b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a70",
+    "title": "Plants Feel Pain Signals",
+    "content": "Plants don’t feel pain, but they send electrical distress signals when damaged.",
+    "categories": ["Nature", "Science"]
+  },
+
+  {
+    "id": "d7b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a71",
+    "title": "Ancient Mail",
+    "content": "The Persian Empire had one of the world’s first postal systems.",
+    "categories": ["History", "Culture"]
+  },
+  {
+    "id": "e7b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a72",
+    "title": "Humans Glow After Death",
+    "content": "Human bodies emit light briefly after death due to chemical reactions.",
+    "categories": ["Science", "Human Body"]
+  },
+  {
+    "id": "f7b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a73",
+    "title": "Fish Use Tools",
+    "content": "Some fish use rocks as tools to crack open shells.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "a8b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a74",
+    "title": "Ancient Surgeons",
+    "content": "Ancient doctors performed brain surgery with stone tools.",
+    "categories": ["History", "Science"]
+  },
+  {
+    "id": "b8b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a75",
+    "title": "You’re a Superorganism",
+    "content": "Your body contains more bacterial cells than human cells.",
+    "categories": ["Human Body", "Science"]
+  },
+
+  {
+    "id": "c8b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a76",
+    "title": "Clouds Make Rain Noise",
+    "content": "Raindrops collide and vibrate, creating sound before rain hits the ground.",
+    "categories": ["Science", "Nature"]
+  },
+  {
+    "id": "d8b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a77",
+    "title": "Ancient Sunscreen",
+    "content": "Ancient Greeks used olive oil to protect skin from the sun.",
+    "categories": ["History", "Lifestyle"]
+  },
+  {
+    "id": "e8b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a78",
+    "title": "The Brain Shrinks",
+    "content": "Your brain shrinks slightly during long periods of dehydration.",
+    "categories": ["Human Body", "Science"]
+  },
+  {
+    "id": "f8b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a79",
+    "title": "Plants Have Jet Lag",
+    "content": "Plants can experience stress when their light cycles suddenly change.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "a9b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a80",
+    "title": "Ancient Glass Mirrors",
+    "content": "The first mirrors were polished volcanic glass.",
+    "categories": ["History", "Culture"]
+  },
+
+  {
+    "id": "b9b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a81",
+    "title": "You Hear in Color",
+    "content": "Some people experience sounds as colors, a condition called synesthesia.",
+    "categories": ["Human Body", "Science"]
+  },
+  {
+    "id": "c9b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a82",
+    "title": "Plants Can Taste",
+    "content": "Plant roots can detect and respond to specific chemicals in soil.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "d9b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a83",
+    "title": "Ancient Tooth Fillings",
+    "content": "Beeswax was used as dental fillings over 6,000 years ago.",
+    "categories": ["History", "Science"]
+  },
+  {
+    "id": "e9b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a84",
+    "title": "Your Skin Breathes",
+    "content": "Your skin absorbs small amounts of oxygen directly from the air.",
+    "categories": ["Human Body", "Science"]
+  },
+  {
+    "id": "f9b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a85",
+    "title": "Antarctica Is Dry",
+    "content": "Antarctica is the world’s largest desert due to extremely low rainfall.",
+    "categories": ["Geography", "Science"]
+  },
+
+  {
+    "id": "a0b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a86",
+    "title": "Plants Can Hear Caterpillars",
+    "content": "Some plants boost defenses when they hear caterpillars chewing.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "b0b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a87",
+    "title": "Ancient Perfume",
+    "content": "The oldest perfume factory dates back over 4,000 years.",
+    "categories": ["History", "Culture"]
+  },
+  {
+    "id": "c0b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a88",
+    "title": "Your Brain Time Warps",
+    "content": "Fear can make time feel slower due to heightened brain processing.",
+    "categories": ["Human Body", "Science"]
+  },
+  {
+    "id": "d0b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a89",
+    "title": "Plants Sleep",
+    "content": "Plants have circadian rhythms, opening and closing leaves daily.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "e0b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a90",
+    "title": "Ancient Wind Power",
+    "content": "Windmills were used in Persia over 1,000 years ago.",
+    "categories": ["History", "Technology"]
+  },
+
+  {
+    "id": "f0b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a91",
+    "title": "You Have Super Smell",
+    "content": "Humans can distinguish over a trillion different scents.",
+    "categories": ["Human Body", "Science"]
+  },
+  {
+    "id": "a1c2d3e4-5e6f-4a5c-9b6e-0f3a1d2c8a92",
+    "title": "Plants Can Learn",
+    "content": "Plants can associate experiences, a basic form of learning.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "b1c2d3e4-5e6f-4a5c-9b6e-0f3a1d2c8a93",
+    "title": "Ancient Sports Fans",
+    "content": "Ancient Romans graffiti-cheered for their favorite gladiators.",
+    "categories": ["History", "Sports"]
+  },
+  {
+    "id": "c1c2d3e4-5e6f-4a5c-9b6e-0f3a1d2c8a94",
+    "title": "Your Heart Has Neurons",
+    "content": "The heart contains its own network of neurons, sometimes called a ‘heart brain.’",
+    "categories": ["Human Body", "Science"]
+  },
+  {
+    "id": "d1c2d3e4-5e6f-4a5c-9b6e-0f3a1d2c8a95",
+    "title": "Plants Can See Light",
+    "content": "Plants detect light direction and color to guide growth.",
+    "categories": ["Nature", "Science"]
+  },
+
+  {
+    "id": "e1c2d3e4-5e6f-4a5c-9b6e-0f3a1d2c8a96",
+    "title": "Ancient Refrigerators",
+    "content": "Ancient Persians used ice houses to store ice year-round.",
+    "categories": ["History", "Technology"]
+  },
+  {
+    "id": "f1c2d3e4-5e6f-4a5c-9b6e-0f3a1d2c8a97",
+    "title": "You’re Electrified",
+    "content": "Your nervous system runs on electrical signals.",
+    "categories": ["Human Body", "Science"]
+  },
+  {
+    "id": "a2c2d3e4-5e6f-4a5c-9b6e-0f3a1d2c8a98",
+    "title": "Plants Talk Chemicals",
+    "content": "Plants release chemicals to warn nearby plants of danger.",
+    "categories": ["Nature", "Science"]
+  },
+  {
+    "id": "b2c2d3e4-5e6f-4a5c-9b6e-0f3a1d2c8a99",
+    "title": "Ancient Glass Windows",
+    "content": "Romans were the first to use glass windows in buildings.",
+    "categories": ["History", "Technology"]
+  },
+  {
+    "id": "c2c2d3e4-5e6f-4a5c-9b6e-0f3a1d2c8a100",
+    "title": "You Are Stardust",
+    "content": "Most elements in your body were formed inside ancient stars.",
+    "categories": ["Science", "Human Body", "Space"]
+  }
+]

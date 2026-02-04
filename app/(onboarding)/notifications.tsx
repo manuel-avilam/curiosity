@@ -12,6 +12,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import Animated, { FadeInDown } from "react-native-reanimated";
 
 export default function NotificationSettingsScreen() {
   const router = useRouter();
@@ -72,10 +73,12 @@ export default function NotificationSettingsScreen() {
                 <Text style={styles.appName}>CURIOSITY</Text>
                 <Text style={styles.timeText}>now</Text>
               </View>
-              <Text style={styles.notificationTitle}>Did you know?</Text>
-              <Text style={styles.notificationBody}>
-                One day on Venus is longer than one year on Earth.
-              </Text>
+              <Animated.View entering={FadeInDown.duration(800).delay(300)}>
+                <Text style={styles.notificationTitle}>Did you know?</Text>
+                <Text style={styles.notificationBody}>
+                  One day on Venus is longer than one year on Earth.
+                </Text>
+              </Animated.View>
             </View>
           </View>
         </View>
@@ -104,20 +107,23 @@ export default function NotificationSettingsScreen() {
         </View>
       </View>
 
-      <View style={styles.footer}>
+      <Animated.View
+        entering={FadeInDown.duration(800).delay(500)}
+        style={styles.footer}
+      >
+        <Link href="/(onboarding)/streak" asChild>
+          <PulsateButton>
+            <Text style={styles.skipText}>I&apos;ll do it later</Text>
+          </PulsateButton>
+        </Link>
+
         <PulsateButton
           style={styles.continueButton}
           onPress={handleAllowNotifications}
         >
           <Text style={styles.buttonText}>Allow Notifications</Text>
         </PulsateButton>
-
-        <Link href="/(onboarding)/streak" asChild>
-          <PulsateButton>
-            <Text style={styles.skipText}>I&apos;ll do it later</Text>
-          </PulsateButton>
-        </Link>
-      </View>
+      </Animated.View>
     </View>
   );
 }
@@ -158,7 +164,7 @@ const styles = StyleSheet.create({
   },
   notificationCard: {
     width: "100%",
-    backgroundColor: COLORS.input.background,
+    backgroundColor: "rgba(255, 255, 255, 0.95)",
     borderRadius: 25,
     padding: 18,
     flexDirection: "row",
@@ -221,7 +227,7 @@ const styles = StyleSheet.create({
   counterCard: {
     width: "100%",
     flexDirection: "row",
-    backgroundColor: COLORS.input.background,
+    backgroundColor: "rgba(255, 255, 255, 0.95)",
     borderRadius: 25,
     padding: 20,
     alignItems: "center",
@@ -232,7 +238,7 @@ const styles = StyleSheet.create({
   stepButton: {
     width: 55,
     height: 55,
-    backgroundColor: COLORS.background.primary,
+    backgroundColor: COLORS.background.tertiary,
     borderRadius: 18,
     justifyContent: "center",
     alignItems: "center",
@@ -258,7 +264,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     alignItems: "center",
-    gap: 20,
+    gap: 25,
   },
   continueButton: {
     backgroundColor: COLORS.button.background,
@@ -274,7 +280,7 @@ const styles = StyleSheet.create({
   },
   skipText: {
     color: COLORS.text.secondary,
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: "700",
     textDecorationLine: "underline",
   },

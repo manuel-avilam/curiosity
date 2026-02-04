@@ -11,6 +11,7 @@ import {
   Text,
   View,
 } from "react-native";
+import Animated, { FadeInDown } from "react-native-reanimated";
 
 const { width } = Dimensions.get("window");
 
@@ -31,42 +32,50 @@ export default function AgeSelectionScreen() {
           resizeMode="contain"
         />
 
-        <Text style={styles.title}>How old are you?</Text>
-        <Text style={styles.subtitle}>
-          This helps us tailor the quizzes to your level
-        </Text>
+        <View style={styles.textContainer}>
+          <Text style={styles.title}>How old are you?</Text>
+          <Text style={styles.subtitle}>
+            This helps us tailor the quizzes to your level
+          </Text>
+        </View>
 
         <View style={styles.rangesContainer}>
           {AGE_RANGES.map((range) => {
             const isSelected = selectedRange === range;
             return (
-              <PulsateButton
-                key={range}
-                onPress={() => setSelectedRange(range)}
-                style={[
-                  styles.rangeButton,
-                  isSelected && styles.rangeButtonSelected,
-                ]}
-              >
-                <Text
+              <View key={range}>
+                <PulsateButton
+                  onPress={() => setSelectedRange(range)}
                   style={[
-                    styles.rangeText,
-                    isSelected && styles.rangeTextSelected,
+                    styles.rangeButton,
+                    isSelected && styles.rangeButtonSelected,
                   ]}
                 >
-                  {range}
-                </Text>
-              </PulsateButton>
+                  <Text
+                    style={[
+                      styles.rangeText,
+                      isSelected && styles.rangeTextSelected,
+                    ]}
+                  >
+                    {range}
+                  </Text>
+                </PulsateButton>
+              </View>
             );
           })}
         </View>
       </ScrollView>
 
-      <Link href="/(onboarding)/purpose" asChild>
-        <PulsateButton style={styles.continueButton} disabled={!selectedRange}>
-          <Text style={styles.buttonText}>Continue</Text>
-        </PulsateButton>
-      </Link>
+      <Animated.View entering={FadeInDown.duration(800).delay(200)}>
+        <Link href="/(onboarding)/purpose" asChild>
+          <PulsateButton
+            style={styles.continueButton}
+            disabled={!selectedRange}
+          >
+            <Text style={styles.buttonText}>Continue</Text>
+          </PulsateButton>
+        </Link>
+      </Animated.View>
     </View>
   );
 }
@@ -79,12 +88,17 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     alignItems: "center",
-    paddingTop: 40,
-    paddingBottom: 20,
+    paddingTop: 60,
+    paddingBottom: 40,
+  },
+  textContainer: {
+    width: "100%",
+    alignItems: "center",
   },
   mascotSmall: {
-    width: width * 0.55,
-    height: width * 0.55,
+    width: width * 0.4,
+    height: width * 0.4,
+    marginBottom: 20,
     transform: [{ rotate: "5deg" }],
   },
   title: {

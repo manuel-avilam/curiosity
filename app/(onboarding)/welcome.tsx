@@ -2,18 +2,43 @@ import PulsateButton from "@/components/ui/PulsateButton";
 import { MASCOT_IMAGE } from "@/constants/assets";
 import { COLORS } from "@/constants/theme";
 import { Link } from "expo-router";
-import React from "react";
-import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
+import React, { useEffect } from "react";
+import { Dimensions, StyleSheet, Text, View } from "react-native";
+import Animated, {
+  FadeInDown,
+  useAnimatedStyle,
+  useSharedValue,
+  withRepeat,
+  withSequence,
+  withTiming,
+} from "react-native-reanimated";
 
 const { width } = Dimensions.get("window");
 
 export default function WelcomeScreen() {
+  const rotation = useSharedValue(5);
+
+  useEffect(() => {
+    rotation.value = withRepeat(
+      withSequence(
+        withTiming(-5, { duration: 2500 }),
+        withTiming(5, { duration: 2500 }),
+      ),
+      -1,
+      true,
+    );
+  }, []);
+
+  const animatedMascotStyle = useAnimatedStyle(() => ({
+    transform: [{ rotate: `${rotation.value}deg` }],
+  }));
+
   return (
     <View style={styles.container}>
       <View style={styles.topSection}>
-        <Image
+        <Animated.Image
           source={MASCOT_IMAGE}
-          style={styles.mascot}
+          style={[styles.mascot, animatedMascotStyle]}
           resizeMode="contain"
         />
         <View style={styles.curveContainer}>
@@ -22,7 +47,10 @@ export default function WelcomeScreen() {
       </View>
 
       <View style={styles.bottomSection}>
-        <View style={styles.textContainer}>
+        <Animated.View
+          entering={FadeInDown.duration(800).delay(300)}
+          style={styles.textContainer}
+        >
           <Text style={styles.title}>Hey, I&apos;m Spark!</Text>
           <Text style={styles.subtitle}>
             I&apos;m here to spark your curiosity
@@ -31,15 +59,17 @@ export default function WelcomeScreen() {
             Let&apos;s start your journey to learning with fun daily facts that
             make you smarter.
           </Text>
-        </View>
+        </Animated.View>
 
         <View style={styles.spacer} />
 
-        <Link asChild href="/(onboarding)/name">
-          <PulsateButton style={styles.button}>
-            <Text style={styles.buttonText}>Let&apos;s get started</Text>
-          </PulsateButton>
-        </Link>
+        <Animated.View entering={FadeInDown.duration(800).delay(600)}>
+          <Link asChild href="/(onboarding)/name">
+            <PulsateButton style={styles.button}>
+              <Text style={styles.buttonText}>Let&apos;s get started</Text>
+            </PulsateButton>
+          </Link>
+        </Animated.View>
       </View>
     </View>
   );
@@ -62,7 +92,6 @@ const styles = StyleSheet.create({
     height: width * 0.95,
     zIndex: 10,
     marginTop: 20,
-    transform: [{ rotate: "5deg" }],
   },
   curveContainer: {
     position: "absolute",

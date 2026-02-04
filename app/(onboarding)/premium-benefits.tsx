@@ -1,12 +1,15 @@
 import PulsateButton from "@/components/ui/PulsateButton";
 import { MASCOT_IMAGE } from "@/constants/assets";
 import { COLORS } from "@/constants/theme";
+import { Link, useRouter } from "expo-router";
 import React from "react";
 import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
+import Animated, { FadeInDown } from "react-native-reanimated";
 
 const { width } = Dimensions.get("window");
 
 export default function PremiumBenefitsScreen() {
+  const router = useRouter();
   const benefits = [
     "Unlock all curiosity categories",
     "Unlock all premium themes",
@@ -14,6 +17,10 @@ export default function PremiumBenefitsScreen() {
     "Generate personalized daily facts",
     "Remove all ads",
   ];
+
+  const handleSkip = () => {
+    router.replace("/feed");
+  };
 
   return (
     <View style={styles.container}>
@@ -43,12 +50,22 @@ export default function PremiumBenefitsScreen() {
       </View>
 
       <View style={styles.footer}>
-        <PulsateButton
-          style={styles.subscribeButton}
-          onPress={() => console.log("Subscribe pressed")}
+        <Animated.View entering={FadeInDown.duration(800).delay(1200)}>
+          <PulsateButton onPress={handleSkip}>
+            <Text style={styles.skipText}>Skip</Text>
+          </PulsateButton>
+        </Animated.View>
+
+        <Animated.View
+          entering={FadeInDown.duration(800).delay(400)}
+          style={{ width: "100%" }}
         >
-          <Text style={styles.buttonText}>Try for free</Text>
-        </PulsateButton>
+          <Link href="/feed" asChild>
+            <PulsateButton style={styles.subscribeButton}>
+              <Text style={styles.buttonText}>Try for free</Text>
+            </PulsateButton>
+          </Link>
+        </Animated.View>
       </View>
     </View>
   );
@@ -70,8 +87,9 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   mascot: {
-    width: width * 0.55,
-    height: width * 0.55,
+    width: width * 0.5,
+    height: width * 0.5,
+    marginTop: 15,
     transform: [{ rotate: "5deg" }],
   },
   title: {
@@ -89,12 +107,17 @@ const styles = StyleSheet.create({
   },
   benefitsList: {
     width: "100%",
-    backgroundColor: COLORS.input.background,
+    backgroundColor: "rgba(255, 255, 255, 0.95)",
     borderRadius: 30,
     padding: 25,
     gap: 18,
     borderWidth: 2,
     borderColor: "rgba(0,0,0,0.03)",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.05,
+    shadowRadius: 10,
+    elevation: 3,
   },
   benefitItem: {
     flexDirection: "row",
@@ -105,7 +128,7 @@ const styles = StyleSheet.create({
     width: 26,
     height: 26,
     borderRadius: 13,
-    backgroundColor: COLORS.background.secondary, // Naranja de Spark
+    backgroundColor: COLORS.background.secondary,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -123,6 +146,7 @@ const styles = StyleSheet.create({
   footer: {
     width: "100%",
     alignItems: "center",
+    gap: 10,
   },
   subscribeButton: {
     backgroundColor: COLORS.button.background,
@@ -135,5 +159,12 @@ const styles = StyleSheet.create({
     color: COLORS.text.inverse,
     fontSize: 20,
     fontWeight: "800",
+  },
+  skipText: {
+    color: COLORS.text.secondary,
+    fontSize: 16,
+    fontWeight: "700",
+    textDecorationLine: "underline",
+    paddingVertical: 10,
   },
 });

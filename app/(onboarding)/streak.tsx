@@ -4,6 +4,7 @@ import { COLORS } from "@/constants/theme";
 import { Link } from "expo-router";
 import React from "react";
 import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
+import Animated, { FadeInDown } from "react-native-reanimated";
 
 const { width } = Dimensions.get("window");
 
@@ -64,13 +65,16 @@ export default function HabitStreakScreen() {
         </View>
       </View>
 
-      <View style={styles.footer}>
+      <Animated.View
+        entering={FadeInDown.duration(800).delay(200)}
+        style={styles.footer}
+      >
         <Link href="/(onboarding)/premium-benefits" asChild>
           <PulsateButton style={styles.nextButton}>
             <Text style={styles.buttonText}>Continue</Text>
           </PulsateButton>
         </Link>
-      </View>
+      </Animated.View>
     </View>
   );
 }
@@ -91,8 +95,9 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   mascot: {
-    width: width * 0.55,
-    height: width * 0.55,
+    width: width * 0.5,
+    height: width * 0.5,
+    marginTop: 15,
     transform: [{ rotate: "5deg" }],
   },
   title: {
@@ -110,7 +115,7 @@ const styles = StyleSheet.create({
   },
   calendarCard: {
     width: "100%",
-    backgroundColor: COLORS.input.background,
+    backgroundColor: "rgba(255, 255, 255, 0.95)",
     borderRadius: 30,
     padding: 20,
     paddingVertical: 25,
@@ -118,6 +123,11 @@ const styles = StyleSheet.create({
     marginBottom: 25,
     borderWidth: 2,
     borderColor: "rgba(0,0,0,0.03)",
+    elevation: 2,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 5,
   },
   daysRow: {
     flexDirection: "row",
@@ -141,7 +151,7 @@ const styles = StyleSheet.create({
     width: 38,
     height: 38,
     borderRadius: 19,
-    backgroundColor: COLORS.background.primary,
+    backgroundColor: COLORS.background.tertiary,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -161,7 +171,7 @@ const styles = StyleSheet.create({
   },
   infoCard: {
     width: "100%",
-    backgroundColor: COLORS.input.background,
+    backgroundColor: "rgba(255, 255, 255, 0.95)",
     borderRadius: 20,
     padding: 18,
     flexDirection: "row",

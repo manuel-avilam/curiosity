@@ -12,6 +12,7 @@ import {
   Text,
   View,
 } from "react-native";
+import Animated, { FadeInDown } from "react-native-reanimated";
 
 const { width } = Dimensions.get("window");
 
@@ -93,14 +94,16 @@ export default function TopicsScreen() {
         showsVerticalScrollIndicator={false}
       />
 
-      <Link href="/(onboarding)/notifications" asChild>
-        <PulsateButton
-          style={styles.continueButton}
-          disabled={selectedInterests.length !== 3}
-        >
-          <Text style={styles.buttonText}>Continue</Text>
-        </PulsateButton>
-      </Link>
+      <Animated.View entering={FadeInDown.duration(800).delay(200)}>
+        <Link href="/(onboarding)/notifications" asChild>
+          <PulsateButton
+            style={styles.continueButton}
+            disabled={selectedInterests.length !== 3}
+          >
+            <Text style={styles.buttonText}>Continue</Text>
+          </PulsateButton>
+        </Link>
+      </Animated.View>
     </View>
   );
 }
@@ -119,6 +122,7 @@ const styles = StyleSheet.create({
   mascotSmall: {
     width: width * 0.45,
     height: width * 0.45,
+    marginTop: 15,
     transform: [{ rotate: "5deg" }],
   },
   title: {

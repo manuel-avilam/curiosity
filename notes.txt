@@ -1,0 +1,17 @@
+AI PROMPT:
+
+Act as a content creator for a trivia app. Generate 100 mind-blowing, unique, and engaging facts in English.
+
+CRITICAL RULES:
+
+The output MUST be a single JSON array of objects.
+
+Each object MUST follow this exact structure: {"id": "UUID_V4", "title": "Short catchy title", "content": "The full fact description (max 200 characters)", "categories": ["Category1", "Category2"]}
+
+Use ONLY these categories for the array: ["Science", "History", "Nature", "Technology", "Culture", "Human Body", "Geography", "Sports", "Lifestyle", "Random"].
+
+Assign 1 to 3 categories per fact if they overlap.
+
+Ensure the facts are verified and optimized for a TikTok-style vertical scroll (concise and surprising).
+
+Do not include any text outside of the JSON block.
