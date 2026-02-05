@@ -1,7 +1,8 @@
 import PulsateButton from "@/components/ui/PulsateButton";
 import { MASCOT_IMAGE } from "@/constants/assets";
 import { COLORS } from "@/constants/theme";
-import { Link, useRouter } from "expo-router";
+import { useAppStore } from "@/store/useAppStore";
+import { useRouter } from "expo-router";
 import React from "react";
 import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
@@ -10,6 +11,10 @@ const { width } = Dimensions.get("window");
 
 export default function PremiumBenefitsScreen() {
   const router = useRouter();
+  const setHasCompletedOnboarding = useAppStore(
+    (state) => state.setHasCompletedOnboarding,
+  );
+
   const benefits = [
     "Unlock all curiosity categories",
     "Unlock all premium themes",
@@ -18,7 +23,8 @@ export default function PremiumBenefitsScreen() {
     "Remove all ads",
   ];
 
-  const handleSkip = () => {
+  const handleCompleteOnboarding = () => {
+    setHasCompletedOnboarding(true);
     router.replace("/feed");
   };
 
@@ -51,7 +57,7 @@ export default function PremiumBenefitsScreen() {
 
       <View style={styles.footer}>
         <Animated.View entering={FadeInDown.duration(800).delay(1200)}>
-          <PulsateButton onPress={handleSkip}>
+          <PulsateButton onPress={handleCompleteOnboarding}>
             <Text style={styles.skipText}>Skip</Text>
           </PulsateButton>
         </Animated.View>
@@ -60,11 +66,12 @@ export default function PremiumBenefitsScreen() {
           entering={FadeInDown.duration(800).delay(400)}
           style={{ width: "100%" }}
         >
-          <Link href="/feed" asChild>
-            <PulsateButton style={styles.subscribeButton}>
-              <Text style={styles.buttonText}>Try for free</Text>
-            </PulsateButton>
-          </Link>
+          <PulsateButton
+            style={styles.subscribeButton}
+            onPress={handleCompleteOnboarding}
+          >
+            <Text style={styles.buttonText}>Try for free</Text>
+          </PulsateButton>
         </Animated.View>
       </View>
     </View>

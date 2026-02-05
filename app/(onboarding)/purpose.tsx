@@ -1,7 +1,8 @@
 import PulsateButton from "@/components/ui/PulsateButton";
 import { MASCOT_IMAGE } from "@/constants/assets";
 import { COLORS } from "@/constants/theme";
-import { Link } from "expo-router";
+import { useAppStore } from "@/store/useAppStore";
+import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
   Dimensions,
@@ -24,7 +25,19 @@ const PURPOSES = [
 ];
 
 export default function PurposeSelectionScreen() {
-  const [selectedPurpose, setSelectedPurpose] = useState("");
+  const router = useRouter();
+
+  const storedInterest = useAppStore((state) => state.interests);
+  const updateInterest = useAppStore((state) => state.setInterests);
+
+  const [selectedPurpose, setSelectedPurpose] = useState(storedInterest);
+
+  const handleContinue = () => {
+    if (selectedPurpose) {
+      updateInterest(selectedPurpose);
+      router.push("/(onboarding)/topics");
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -70,14 +83,13 @@ export default function PurposeSelectionScreen() {
       </ScrollView>
 
       <Animated.View entering={FadeInDown.duration(800).delay(200)}>
-        <Link href="/(onboarding)/topics" asChild>
-          <PulsateButton
-            style={styles.continueButton}
-            disabled={!selectedPurpose}
-          >
-            <Text style={styles.buttonText}>Continue</Text>
-          </PulsateButton>
-        </Link>
+        <PulsateButton
+          style={styles.continueButton}
+          disabled={!selectedPurpose}
+          onPress={handleContinue}
+        >
+          <Text style={styles.buttonText}>Continue</Text>
+        </PulsateButton>
       </Animated.View>
     </View>
   );

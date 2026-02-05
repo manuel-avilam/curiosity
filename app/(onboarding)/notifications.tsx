@@ -1,8 +1,9 @@
 import PulsateButton from "@/components/ui/PulsateButton";
 import { MASCOT_IMAGE } from "@/constants/assets";
 import { COLORS } from "@/constants/theme";
+import { useAppStore } from "@/store/useAppStore";
 import * as Notifications from "expo-notifications";
-import { Link, useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
   Alert,
@@ -16,7 +17,10 @@ import Animated, { FadeInDown } from "react-native-reanimated";
 
 export default function NotificationSettingsScreen() {
   const router = useRouter();
-  const [frequency, setFrequency] = useState(3);
+  const storedFrequency = useAppStore((state) => state.notificationsNum);
+  const updateFrequency = useAppStore((state) => state.setNotificationsNum);
+
+  const [frequency, setFrequency] = useState(storedFrequency || 3);
 
   const increment = () => {
     if (frequency < 10) setFrequency(frequency + 1);
@@ -24,6 +28,11 @@ export default function NotificationSettingsScreen() {
 
   const decrement = () => {
     if (frequency > 1) setFrequency(frequency - 1);
+  };
+
+  const completeNotificationStep = () => {
+    updateFrequency(frequency);
+    router.push("/(onboarding)/streak");
   };
 
   const handleAllowNotifications = async () => {
@@ -37,11 +46,15 @@ export default function NotificationSettingsScreen() {
     }
 
     if (finalStatus === "granted") {
-      router.replace("/(onboarding)/streak");
+      completeNotificationStep();
     } else {
       Alert.alert(
         "Notifications disabled",
         "To get daily facts, we need your permission. You can also continue without them.",
+        [
+          { text: "Cancel", style: "cancel" },
+          { text: "Continue anyway", onPress: completeNotificationStep },
+        ],
       );
     }
   };
@@ -111,11 +124,9 @@ export default function NotificationSettingsScreen() {
         entering={FadeInDown.duration(800).delay(500)}
         style={styles.footer}
       >
-        <Link href="/(onboarding)/streak" asChild>
-          <PulsateButton>
-            <Text style={styles.skipText}>I&apos;ll do it later</Text>
-          </PulsateButton>
-        </Link>
+        <TouchableOpacity onPress={completeNotificationStep}>
+          <Text style={styles.skipText}>I&apos;ll do it later</Text>
+        </TouchableOpacity>
 
         <PulsateButton
           style={styles.continueButton}
@@ -131,7 +142,7 @@ export default function NotificationSettingsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 140,
+    paddingTop: 100,
     paddingHorizontal: 30,
     paddingBottom: 50,
   },

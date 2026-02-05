@@ -1,7 +1,8 @@
 import PulsateButton from "@/components/ui/PulsateButton";
 import { MASCOT_IMAGE } from "@/constants/assets";
 import { COLORS } from "@/constants/theme";
-import { Link } from "expo-router";
+import { useAppStore } from "@/store/useAppStore";
+import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
   Dimensions,
@@ -18,7 +19,18 @@ const { width } = Dimensions.get("window");
 const AGE_RANGES = ["Under 18", "18 - 24", "25 - 34", "35 - 44", "45++"];
 
 export default function AgeSelectionScreen() {
-  const [selectedRange, setSelectedRange] = useState("");
+  const router = useRouter();
+
+  const storedAge = useAppStore((state) => state.age);
+  const updateAge = useAppStore((state) => state.setAge);
+  const [selectedRange, setSelectedRange] = useState(storedAge);
+
+  const handleContinue = () => {
+    if (selectedRange) {
+      updateAge(selectedRange);
+      router.push("/(onboarding)/purpose");
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -67,14 +79,13 @@ export default function AgeSelectionScreen() {
       </ScrollView>
 
       <Animated.View entering={FadeInDown.duration(800).delay(200)}>
-        <Link href="/(onboarding)/purpose" asChild>
-          <PulsateButton
-            style={styles.continueButton}
-            disabled={!selectedRange}
-          >
-            <Text style={styles.buttonText}>Continue</Text>
-          </PulsateButton>
-        </Link>
+        <PulsateButton
+          style={styles.continueButton}
+          disabled={!selectedRange}
+          onPress={handleContinue}
+        >
+          <Text style={styles.buttonText}>Continue</Text>
+        </PulsateButton>
       </Animated.View>
     </View>
   );

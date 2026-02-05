@@ -8,7 +8,7 @@ The output MUST be a single JSON array of objects.
 
 Each object MUST follow this exact structure: {"id": "UUID_V4", "title": "Short catchy title", "content": "The full fact description (max 200 characters)", "categories": ["Category1", "Category2"]}
 
-Use ONLY these categories for the array: ["Science", "History", "Nature", "Technology", "Culture", "Human Body", "Geography", "Sports", "Lifestyle", "Random"].
+Use ONLY these categories for the array: ["Science", "History", "Nature", "Technology", "Culture", "Human Body", "Geography", "Sports", "Lifestyle", "Art", "Love", "Movies", "Space", "Books", "Other"].
 
 Assign 1 to 3 categories per fact if they overlap.
 

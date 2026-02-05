@@ -1,7 +1,14 @@
 import { COLORS } from "@/constants/theme";
 import { Ionicons } from "@expo/vector-icons";
 import { Stack, usePathname, useRouter } from "expo-router";
+import React, { useEffect } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
+import Animated, {
+  Easing,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from "react-native-reanimated";
 
 export default function OnboardingLayout() {
   const pathname = usePathname();
@@ -12,14 +19,29 @@ export default function OnboardingLayout() {
     "/age",
     "/purpose",
     "/topics",
-    "/streak",
     "/notifications",
+    "/streak",
     "/premium-benefits",
   ];
 
   const currentStepIndex = steps.indexOf(pathname);
   const progress = (currentStepIndex + 1) / steps.length;
   const isWelcome = pathname === "/" || pathname === "/welcome";
+
+  const progressAnim = useSharedValue(0);
+
+  useEffect(() => {
+    if (currentStepIndex !== -1) {
+      progressAnim.value = withTiming(progress, {
+        duration: 500,
+        easing: Easing.bezier(0.4, 0, 0.2, 1),
+      });
+    }
+  }, [progress]);
+
+  const animatedStyle = useAnimatedStyle(() => ({
+    width: `${progressAnim.value * 100}%`,
+  }));
 
   return (
     <View style={{ flex: 1 }}>
@@ -36,9 +58,7 @@ export default function OnboardingLayout() {
           </Pressable>
 
           <View style={styles.progressBarBackground}>
-            <View
-              style={[styles.progressBarFill, { width: `${progress * 100}%` }]}
-            />
+            <Animated.View style={[styles.progressBarFill, animatedStyle]} />
           </View>
         </View>
       )}
@@ -66,14 +86,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   progressBarBackground: {
-    height: 4,
+    height: 6,
     backgroundColor: "rgba(0, 0, 0, 0.1)",
-    borderRadius: 2,
+    borderRadius: 3,
     overflow: "hidden",
   },
   progressBarFill: {
     height: "100%",
     backgroundColor: COLORS.background.secondary,
-    borderRadius: 2,
+    borderRadius: 3,
   },
 });

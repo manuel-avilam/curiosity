@@ -3,7 +3,7 @@
     "id": "b3c1e8b4-4b6e-4f9b-8c5a-0f9e9a6c1a01",
     "title": "Bananas Are Radioactive",
     "content": "Bananas emit radiation due to natural potassium-40. It’s harmless, but detectable with a Geiger counter.",
-    "categories": ["Science", "Food", "Random"]
+    "categories": ["Science", "Food"]
   },
   {
     "id": "7d4a2c9e-1f3b-4a6c-9b2e-8f1a2d9b0a02",
@@ -88,7 +88,7 @@
     "id": "1f4c2d9a-8e7b-4a0c-9b6d-3a5f1e2c8b15",
     "title": "Hot Water Freezes Faster",
     "content": "Known as the Mpemba effect, hot water can freeze faster than cold under certain conditions.",
-    "categories": ["Science", "Random"]
+    "categories": ["Science"]
   },
   {
     "id": "a3c2e9b7-5f8d-4a1b-9c6e-0d4f1a2b8c16",
@@ -125,7 +125,7 @@
     "id": "5a2c9b8e-4d7f-4a1c-9e6d-0f3a1b2c8a21",
     "title": "Wombat Cubes",
     "content": "Wombats produce cube-shaped poop, preventing it from rolling away.",
-    "categories": ["Nature", "Random"]
+    "categories": ["Nature"]
   },
   {
     "id": "9b8a2d4c-1e7f-4a5c-9b6e-0f3a1d2c8a22",
@@ -354,7 +354,7 @@
     "id": "c5b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a58",
     "title": "You Share a Birthday",
     "content": "At a party of 23 people, there’s a 50% chance two share a birthday.",
-    "categories": ["Science", "Random"]
+    "categories": ["Science"]
   },
   {
     "id": "d5b2c3d4-5e6f-4a5c-9b6e-0f3a1d2c8a59",

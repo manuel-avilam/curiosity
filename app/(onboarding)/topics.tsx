@@ -1,7 +1,8 @@
 import PulsateButton from "@/components/ui/PulsateButton";
 import { MASCOT_IMAGE } from "@/constants/assets";
 import { COLORS } from "@/constants/theme";
-import { Link } from "expo-router";
+import { useAppStore } from "@/store/useAppStore";
+import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
   Dimensions,
@@ -25,37 +26,52 @@ interface Interest {
 const INTERESTS: Interest[] = [
   { id: "1", name: "Science", icon: "🔬" },
   { id: "2", name: "History", icon: "📜" },
-  { id: "3", name: "Technology", icon: "💻" },
-  { id: "4", name: "Art", icon: "🎨" },
-  { id: "5", name: "Sports", icon: "⚽" },
-  { id: "6", name: "Music", icon: "🎵" },
-  { id: "7", name: "Movies", icon: "🎬" },
-  { id: "8", name: "Books", icon: "📚" },
+  { id: "3", name: "Nature", icon: "🌿" },
+  { id: "4", name: "Technology", icon: "💻" },
+  { id: "5", name: "Culture", icon: "🎭" },
+  { id: "6", name: "Human Body", icon: "🫀" },
+  { id: "7", name: "Geography", icon: "🌍" },
+  { id: "8", name: "Sports", icon: "⚽" },
+  { id: "9", name: "Lifestyle", icon: "🧘" },
+  { id: "10", name: "Art", icon: "🎨" },
+  { id: "11", name: "Love", icon: "❤️" },
+  { id: "12", name: "Movies", icon: "🎬" },
+  { id: "13", name: "Space", icon: "🚀" },
+  { id: "14", name: "Books", icon: "📚" },
+  { id: "15", name: "Other", icon: "✨" },
 ];
 
 export default function TopicsScreen() {
-  const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
+  const router = useRouter();
 
-  const toggleInterest = (id: string) => {
-    if (selectedInterests.includes(id)) {
-      setSelectedInterests(selectedInterests.filter((item) => item !== id));
-    } else if (selectedInterests.length < 3) {
-      setSelectedInterests([...selectedInterests, id]);
+  const storedTopics = useAppStore((state) => state.topics);
+  const updateTopics = useAppStore((state) => state.setTopics);
+
+  const [selectedNames, setSelectedNames] = useState<string[]>(storedTopics);
+
+  const toggleInterest = (name: string) => {
+    if (selectedNames.includes(name)) {
+      setSelectedNames(selectedNames.filter((item) => item !== name));
+    } else if (selectedNames.length < 3) {
+      setSelectedNames([...selectedNames, name]);
+    }
+  };
+
+  const handleContinue = () => {
+    if (selectedNames.length === 3) {
+      updateTopics(selectedNames);
+      router.push("/(onboarding)/notifications");
     }
   };
 
   const renderItem: ListRenderItem<Interest> = ({ item }) => {
-    const isSelected = selectedInterests.includes(item.id);
-    const isDisabled = selectedInterests.length >= 3 && !isSelected;
+    const isSelected = selectedNames.includes(item.name);
+    const isDisabled = selectedNames.length >= 3 && !isSelected;
 
     return (
       <PulsateButton
-        style={[
-          styles.interestCard,
-          isSelected && styles.interestCardSelected,
-          isDisabled && { opacity: 0.5 },
-        ]}
-        onPress={() => toggleInterest(item.id)}
+        style={[styles.interestCard, isSelected && styles.interestCardSelected]}
+        onPress={() => toggleInterest(item.name)}
         disabled={isDisabled}
       >
         <Text style={styles.interestIcon}>{item.icon}</Text>
@@ -81,7 +97,7 @@ export default function TopicsScreen() {
         />
         <Text style={styles.title}>What interests you?</Text>
         <Text style={styles.subtitle}>
-          Select your top 3 topics ({selectedInterests.length}/3)
+          Select your top 3 topics ({selectedNames.length}/3)
         </Text>
       </View>
 
@@ -95,14 +111,13 @@ export default function TopicsScreen() {
       />
 
       <Animated.View entering={FadeInDown.duration(800).delay(200)}>
-        <Link href="/(onboarding)/notifications" asChild>
-          <PulsateButton
-            style={styles.continueButton}
-            disabled={selectedInterests.length !== 3}
-          >
-            <Text style={styles.buttonText}>Continue</Text>
-          </PulsateButton>
-        </Link>
+        <PulsateButton
+          style={styles.continueButton}
+          disabled={selectedNames.length !== 3}
+          onPress={handleContinue}
+        >
+          <Text style={styles.buttonText}>Continue</Text>
+        </PulsateButton>
       </Animated.View>
     </View>
   );

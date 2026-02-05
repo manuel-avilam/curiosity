@@ -1,7 +1,8 @@
 import PulsateButton from "@/components/ui/PulsateButton";
 import { MASCOT_IMAGE } from "@/constants/assets";
 import { COLORS } from "@/constants/theme";
-import { Link } from "expo-router";
+import { useAppStore } from "@/store/useAppStore";
+import { useRouter } from "expo-router"; // Cambiamos Link por useRouter
 import React, { useState } from "react";
 import {
   Dimensions,
@@ -21,7 +22,18 @@ import Animated, { FadeInDown } from "react-native-reanimated";
 const { width } = Dimensions.get("window");
 
 export default function NameInputScreen() {
-  const [name, setName] = useState("");
+  const router = useRouter();
+
+  const storedName = useAppStore((state) => state.name);
+  const updateName = useAppStore((state) => state.setName);
+  const [name, setName] = useState(storedName);
+
+  const handleContinue = () => {
+    if (name.trim()) {
+      updateName(name.trim());
+      router.push("/(onboarding)/age");
+    }
+  };
 
   return (
     <KeyboardAvoidingView
@@ -52,18 +64,20 @@ export default function NameInputScreen() {
               value={name}
               onChangeText={setName}
               autoCapitalize="words"
+              autoFocus={true}
+              returnKeyType="done"
+              onSubmitEditing={handleContinue}
             />
           </ScrollView>
 
           <Animated.View entering={FadeInDown.duration(800).delay(200)}>
-            <Link href="/(onboarding)/age" asChild>
-              <PulsateButton
-                style={styles.continueButton}
-                disabled={!name.trim()}
-              >
-                <Text style={styles.buttonText}>Continue</Text>
-              </PulsateButton>
-            </Link>
+            <PulsateButton
+              style={styles.continueButton}
+              disabled={!name.trim()}
+              onPress={handleContinue}
+            >
+              <Text style={styles.buttonText}>Continue</Text>
+            </PulsateButton>
           </Animated.View>
         </View>
       </TouchableWithoutFeedback>
