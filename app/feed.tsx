@@ -1,6 +1,8 @@
 import factsData from "@/assets/data/facts.json";
 import FeedItem from "@/components/FeedItem";
 import PulsateButton from "@/components/ui/PulsateButton";
+import WelcomeOverlay from "@/components/WelcomeOverlay";
+import { useAppStore } from "@/store/useAppStore";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 import React from "react";
@@ -12,8 +14,12 @@ const { height } = Dimensions.get("window");
 const Feed = () => {
   const insets = useSafeAreaInsets();
 
+  const hasSeenOverlay = useAppStore((state) => state.hasSeenWelcomeOverlay);
+  const resetUser = useAppStore((state) => state.resetUser);
+
   return (
     <View style={styles.mainContainer}>
+      {!hasSeenOverlay && <WelcomeOverlay />}
       <View style={[styles.topLeftFixed, { top: insets.top + 20 }]}>
         <PulsateButton style={styles.buttonShadow}>
           <BlurView intensity={70} tint="light" style={styles.glassIcon}>
@@ -46,7 +52,7 @@ const Feed = () => {
       />
 
       <View style={[styles.bottomBarFixed, { bottom: insets.bottom + 25 }]}>
-        <PulsateButton style={styles.buttonShadow}>
+        <PulsateButton style={styles.buttonShadow} onPress={resetUser}>
           <BlurView intensity={90} tint="light" style={styles.glassTopics}>
             <Ionicons name="grid-outline" size={20} color="black" />
             <Text style={styles.topicsText}>Topics</Text>
@@ -58,20 +64,9 @@ const Feed = () => {
 };
 
 const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-    backgroundColor: "#E0E3F5",
-  },
-  topLeftFixed: {
-    position: "absolute",
-    left: 25,
-    zIndex: 20,
-  },
-  topRightFixed: {
-    position: "absolute",
-    right: 25,
-    zIndex: 20,
-  },
+  mainContainer: { flex: 1, backgroundColor: "#E0E3F5" },
+  topLeftFixed: { position: "absolute", left: 25, zIndex: 20 },
+  topRightFixed: { position: "absolute", right: 25, zIndex: 20 },
   buttonShadow: {
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },

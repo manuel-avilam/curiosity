@@ -4,6 +4,7 @@ import { createJSONStorage, persist } from "zustand/middleware";
 
 interface AppState {
   hasCompletedOnboarding: boolean;
+  hasSeenWelcomeOverlay: boolean;
   name: string;
   age: string;
   interests: string;
@@ -11,6 +12,7 @@ interface AppState {
   notificationsNum: number;
 
   setHasCompletedOnboarding: (status: boolean) => void;
+  setHasSeenWelcomeOverlay: (status: boolean) => void;
   setName: (name: string) => void;
   setAge: (age: string) => void;
   setInterests: (interests: string) => void;
@@ -24,6 +26,7 @@ export const useAppStore = create<AppState>()(
   persist(
     (set) => ({
       hasCompletedOnboarding: false,
+      hasSeenWelcomeOverlay: false,
       name: "",
       age: "",
       interests: "",
@@ -32,6 +35,8 @@ export const useAppStore = create<AppState>()(
 
       setHasCompletedOnboarding: (status) =>
         set({ hasCompletedOnboarding: status }),
+      setHasSeenWelcomeOverlay: (status) =>
+        set({ hasSeenWelcomeOverlay: status }),
       setName: (name) => set({ name }),
       setAge: (age) => set({ age }),
       setInterests: (interests) => set({ interests }),
@@ -41,6 +46,7 @@ export const useAppStore = create<AppState>()(
       resetUser: () =>
         set({
           hasCompletedOnboarding: false,
+          hasSeenWelcomeOverlay: false,
           name: "",
           age: "",
           interests: "",
@@ -49,7 +55,7 @@ export const useAppStore = create<AppState>()(
         }),
     }),
     {
-      name: "test",
+      name: "curiosity-storage",
       storage: createJSONStorage(() => AsyncStorage),
     },
   ),
