@@ -1,17 +1,11 @@
 import PulsateButton from "@/components/ui/PulsateButton";
 import { MASCOT_IMAGE } from "@/constants/assets";
 import { COLORS } from "@/constants/theme";
-import { useAppStore } from "@/store/useAppStore";
+import { useOnboardingStore } from "@/store/useOnboardingStore";
+import { Image } from "expo-image";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
-import {
-  Dimensions,
-  Image,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Dimensions, ScrollView, StyleSheet, Text, View } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
 
 const { width } = Dimensions.get("window");
@@ -27,8 +21,8 @@ const PURPOSES = [
 export default function PurposeSelectionScreen() {
   const router = useRouter();
 
-  const storedInterest = useAppStore((state) => state.interests);
-  const updateInterest = useAppStore((state) => state.setInterests);
+  const storedInterest = useOnboardingStore((state) => state.interests);
+  const updateInterest = useOnboardingStore((state) => state.setInterests);
 
   const [selectedPurpose, setSelectedPurpose] = useState(storedInterest);
 
@@ -48,7 +42,8 @@ export default function PurposeSelectionScreen() {
         <Image
           source={MASCOT_IMAGE}
           style={styles.mascotSmall}
-          resizeMode="contain"
+          contentFit="contain"
+          transition={500}
         />
 
         <Text style={styles.title}>What brings you here?</Text>

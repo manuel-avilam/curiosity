@@ -2,10 +2,11 @@ import factsData from "@/assets/data/facts.json";
 import FeedItem from "@/components/FeedItem";
 import PulsateButton from "@/components/ui/PulsateButton";
 import WelcomeOverlay from "@/components/WelcomeOverlay";
-import { useAppStore } from "@/store/useAppStore";
+import { useDataStore } from "@/store/useDataStore";
+import { useOnboardingStore } from "@/store/useOnboardingStore";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
-import React from "react";
+import React, { useRef } from "react";
 import { Dimensions, FlatList, StyleSheet, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -13,13 +14,30 @@ const { height } = Dimensions.get("window");
 
 const Feed = () => {
   const insets = useSafeAreaInsets();
+  const addToHistory = useDataStore((state) => state.addToHistory);
 
-  const hasSeenOverlay = useAppStore((state) => state.hasSeenWelcomeOverlay);
-  const resetUser = useAppStore((state) => state.resetUser);
+  const hasSeenOverlay = useOnboardingStore(
+    (state) => state.hasSeenWelcomeOverlay,
+  );
+  const resetUser = useOnboardingStore((state) => state.resetUser);
+
+  const viewabilityConfig = useRef({
+    itemVisiblePercentThreshold: 60,
+  }).current;
+
+  const onViewableItemsChanged = useRef(({ viewableItems }: any) => {
+    if (viewableItems.length > 0) {
+      const latestViewable = viewableItems[0];
+      if (latestViewable.isViewable) {
+        addToHistory(latestViewable.item);
+      }
+    }
+  }).current;
 
   return (
     <View style={styles.mainContainer}>
       {!hasSeenOverlay && <WelcomeOverlay />}
+
       <View style={[styles.topLeftFixed, { top: insets.top + 20 }]}>
         <PulsateButton style={styles.buttonShadow}>
           <BlurView intensity={70} tint="light" style={styles.glassIcon}>
@@ -49,6 +67,10 @@ const Feed = () => {
         snapToInterval={height}
         snapToAlignment="start"
         decelerationRate="fast"
+        onViewableItemsChanged={onViewableItemsChanged}
+        viewabilityConfig={viewabilityConfig}
+        windowSize={3}
+        removeClippedSubviews={true}
       />
 
       <View style={[styles.bottomBarFixed, { bottom: insets.bottom + 25 }]}>

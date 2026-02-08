@@ -1,13 +1,13 @@
 import PulsateButton from "@/components/ui/PulsateButton";
 import { MASCOT_IMAGE } from "@/constants/assets";
 import { COLORS } from "@/constants/theme";
-import { useAppStore } from "@/store/useAppStore";
+import { useOnboardingStore } from "@/store/useOnboardingStore";
+import { Image } from "expo-image";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
   Dimensions,
   FlatList,
-  Image,
   ListRenderItem,
   StyleSheet,
   Text,
@@ -44,8 +44,8 @@ const INTERESTS: Interest[] = [
 export default function TopicsScreen() {
   const router = useRouter();
 
-  const storedTopics = useAppStore((state) => state.topics);
-  const updateTopics = useAppStore((state) => state.setTopics);
+  const storedTopics = useOnboardingStore((state) => state.topics);
+  const updateTopics = useOnboardingStore((state) => state.setTopics);
 
   const [selectedNames, setSelectedNames] = useState<string[]>(storedTopics);
 
@@ -93,7 +93,8 @@ export default function TopicsScreen() {
         <Image
           source={MASCOT_IMAGE}
           style={styles.mascotSmall}
-          resizeMode="contain"
+          contentFit="contain"
+          transition={500}
         />
         <Text style={styles.title}>What interests you?</Text>
         <Text style={styles.subtitle}>

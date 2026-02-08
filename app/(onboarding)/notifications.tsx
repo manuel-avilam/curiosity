@@ -1,24 +1,20 @@
 import PulsateButton from "@/components/ui/PulsateButton";
 import { MASCOT_IMAGE } from "@/constants/assets";
 import { COLORS } from "@/constants/theme";
-import { useAppStore } from "@/store/useAppStore";
+import { useOnboardingStore } from "@/store/useOnboardingStore";
+import { Image } from "expo-image";
 import * as Notifications from "expo-notifications";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
-import {
-  Alert,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
 
 export default function NotificationSettingsScreen() {
   const router = useRouter();
-  const storedFrequency = useAppStore((state) => state.notificationsNum);
-  const updateFrequency = useAppStore((state) => state.setNotificationsNum);
+  const storedFrequency = useOnboardingStore((state) => state.notificationsNum);
+  const updateFrequency = useOnboardingStore(
+    (state) => state.setNotificationsNum,
+  );
 
   const [frequency, setFrequency] = useState(storedFrequency || 3);
 
@@ -76,7 +72,8 @@ export default function NotificationSettingsScreen() {
                 <Image
                   source={MASCOT_IMAGE}
                   style={styles.miniMascot}
-                  resizeMode="contain"
+                  contentFit="contain"
+                  transition={500}
                 />
               </View>
             </View>

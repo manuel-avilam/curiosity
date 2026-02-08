@@ -1,12 +1,12 @@
 import { COLORS } from "@/constants/theme";
-import { useAppStore } from "@/store/useAppStore";
+import { useOnboardingStore } from "@/store/useOnboardingStore";
 import { useRouter } from "expo-router";
 import { useEffect } from "react";
 import { ActivityIndicator, View } from "react-native";
 
 export default function Index() {
   const router = useRouter();
-  const hasCompletedOnboarding = useAppStore(
+  const hasCompletedOnboarding = useOnboardingStore(
     (state) => state.hasCompletedOnboarding,
   );
 

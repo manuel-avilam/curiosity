@@ -1,5 +1,5 @@
 import { COLORS } from "@/constants/theme";
-import { useAppStore } from "@/store/useAppStore";
+import { useOnboardingStore } from "@/store/useOnboardingStore";
 import { Ionicons } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 import React, { useEffect } from "react";
@@ -23,10 +23,10 @@ const WelcomeOverlay = () => {
   const translateY = useSharedValue(0);
   const arrowTranslation = useSharedValue(0);
 
-  const setHasSeenOverlay = useAppStore(
+  const setHasSeenOverlay = useOnboardingStore(
     (state) => state.setHasSeenWelcomeOverlay,
   );
-  const userName = useAppStore((state) => state.name);
+  const userName = useOnboardingStore((state) => state.name);
 
   useEffect(() => {
     arrowTranslation.value = withRepeat(

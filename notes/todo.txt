@@ -7,3 +7,9 @@ themes
 notifications if they didnt enable them
 offer premium on a different day
 remember to turn on notifiactions
+topics
+add fact
+add theme
+add facts
+feed algorithm 
+notifications

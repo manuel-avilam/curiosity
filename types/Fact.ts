@@ -1,5 +1,5 @@
 export type Fact = {
-  id: string | number;
+  id: string;
   title: string;
   content: string;
   categories: string[];

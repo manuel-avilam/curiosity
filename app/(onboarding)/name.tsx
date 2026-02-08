@@ -1,12 +1,12 @@
 import PulsateButton from "@/components/ui/PulsateButton";
 import { MASCOT_IMAGE } from "@/constants/assets";
 import { COLORS } from "@/constants/theme";
-import { useAppStore } from "@/store/useAppStore";
-import { useRouter } from "expo-router"; // Cambiamos Link por useRouter
+import { useOnboardingStore } from "@/store/useOnboardingStore";
+import { Image } from "expo-image";
+import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
   Dimensions,
-  Image,
   Keyboard,
   KeyboardAvoidingView,
   Platform,
@@ -24,8 +24,8 @@ const { width } = Dimensions.get("window");
 export default function NameInputScreen() {
   const router = useRouter();
 
-  const storedName = useAppStore((state) => state.name);
-  const updateName = useAppStore((state) => state.setName);
+  const storedName = useOnboardingStore((state) => state.name);
+  const updateName = useOnboardingStore((state) => state.setName);
   const [name, setName] = useState(storedName);
 
   const handleContinue = () => {
@@ -49,7 +49,8 @@ export default function NameInputScreen() {
             <Image
               source={MASCOT_IMAGE}
               style={styles.mascotSmall}
-              resizeMode="contain"
+              contentFit="contain"
+              transition={500}
             />
 
             <Text style={styles.title}>What do you want to be called?</Text>

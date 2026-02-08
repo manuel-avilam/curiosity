@@ -1,9 +1,10 @@
 import PulsateButton from "@/components/ui/PulsateButton";
 import { MASCOT_IMAGE } from "@/constants/assets";
 import { COLORS } from "@/constants/theme";
+import { Image } from "expo-image";
 import { Link } from "expo-router";
 import React from "react";
-import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
+import { Dimensions, StyleSheet, Text, View } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
 
 const { width } = Dimensions.get("window");
@@ -19,7 +20,8 @@ export default function HabitStreakScreen() {
           <Image
             source={MASCOT_IMAGE}
             style={styles.mascot}
-            resizeMode="contain"
+            contentFit="contain"
+            transition={500}
           />
           <Text style={styles.title}>Build your daily habit</Text>
           <Text style={styles.subtitle}>

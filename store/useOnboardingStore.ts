@@ -22,7 +22,7 @@ interface AppState {
   resetUser: () => void;
 }
 
-export const useAppStore = create<AppState>()(
+export const useOnboardingStore = create<AppState>()(
   persist(
     (set) => ({
       hasCompletedOnboarding: false,
@@ -55,7 +55,7 @@ export const useAppStore = create<AppState>()(
         }),
     }),
     {
-      name: "curiosity-storage",
+      name: "curiosity-onboarding-storage",
       storage: createJSONStorage(() => AsyncStorage),
     },
   ),
